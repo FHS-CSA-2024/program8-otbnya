@@ -1,52 +1,39 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/XF34Vemx)
-# Program 8
+import java.util.Scanner;
 
-## Program Description:  
-- Write a program that prompts the reader for two integers and then prints:
-  - The sum
-  - The difference
-  - The product
-  - The average
-  - The distance (absolute value of the difference)
-  - The maximum (the larger of the two)
-  - The minimum (the larger of the two)
-- You are not allowed to use any max or min function.
-  - Hint:  Use the abs function and compute:  |a - b| + a + b.
-- All variables should be int except average
-- Choose variable names which are meaningful for this problem, like Area, Width, etc.
+public class IntegerOperations {
 
-## Program Data:
-| C1  | C2 | C3 |
-| ----  | ---- | ---- |
-| Royale  | 286 | 9 |
-| Koopa   | 412 | 40 |
-| Pipe  | 361 | 18 |
-| Badwagon | 161 | 11 |
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-## Statements Required: 
-- Input
-- Output
-- Math Library
+        // Prompting for two integers
+        System.out.print("Enter number 1: ");
+        int firstNumber = scanner.nextInt();
 
-## Sample Output:
->Enter number 1: 13
->
->Enter number 2: 20
->
->-------------------
->
->Original numbers are 13 and 20
->
->Sum =	33
->
->Difference =	-7
->
->Product =	260
->
->Average =	 16.5
->
->Absolute value =	7
->
->Maximum =	20
->
->Minimum =	13
+        System.out.print("Enter number 2: ");
+        int secondNumber = scanner.nextInt();
+
+        // Performing various operations
+        int sum = firstNumber + secondNumber;
+        int difference = firstNumber - secondNumber;
+        int product = firstNumber * secondNumber;
+        double average = (firstNumber + secondNumber) / 2.0;
+        int absoluteValue = Math.abs(difference);
+        // Calculating maximum without using max function
+        int maximum = (firstNumber + secondNumber + absoluteValue) / 2;
+        // Calculating minimum without using min function
+        int minimum = (firstNumber + secondNumber - absoluteValue) / 2;
+
+        // Displaying the results
+        System.out.println("Original numbers are " + firstNumber + " and " + secondNumber);
+        System.out.println("Sum = " + sum);
+        System.out.println("Difference = " + difference);
+        System.out.println("Product = " + product);
+        System.out.printf("Average = %.1f%n", average);
+        System.out.println("Absolute value = " + absoluteValue);
+        System.out.println("Maximum = " + maximum);
+        System.out.println("Minimum = " + minimum);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
